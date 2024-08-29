@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+</head>
+<body>
+    <h1>Flower Type</h1>
+    <p>The uploaded flower is a: {{ flower_type }}</p>
+
+    <h2>Ask AI About the Flower</h2>
+    <form action="/chat" method="post">
+        <input type="hidden" name="flower_type" value="{{ flower_type }}">
+        <input type="text" name="user_query" placeholder="Ask about the flower">
+        <button type="submit">Ask AI</button>
+    </form>
+
+    {% if ai_response %}
+        <h2>AI Response</h2>
+        <p>{{ ai_response }}</p>
+    {% endif %}
+</body>
+</html>
